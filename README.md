@@ -2,7 +2,7 @@
 
 **Author**: **Tariq** _Abu-laban_ & **Jana** _Abdelkader_
 
-**Version**: 1.0.0
+**Version**: 1.0.1
 
 ## Overview
 
@@ -22,6 +22,7 @@
 - Bootstrap
 - JavaScript
 - Auth0
+- axios
 
 ## Change Log
 
@@ -35,6 +36,13 @@
   - Start time: 2:00pm
   - Finish time: 4:00pm
   - Actual time needed to complete: 2 hours
+
+- Name of feature: Lab 12 - Tariq & Jana Pair Program (Book Component)
+
+  - Estimate of time needed to complete: 3 hours
+  - Start time: 2:30pm
+  - Finish time: 4:25pm
+  - Actual time needed to complete: 1 hours 55 minutes
 
 ## Credit and Collaborations
 
