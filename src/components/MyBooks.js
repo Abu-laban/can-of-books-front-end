@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import Card from 'react-bootstrap/Card'
 import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
+import Button from 'react-bootstrap/Button'
 
 export class MyBooks extends Component {
     render() {
         return (
             <>
-                {this.props.showModal &&
+                {this.props.showCards &&
                     this.props.books.map((book, idx) => {
                         return (
                             <Card bg='dark' text='white' key={idx} style={{ width: '18rem' }}>
@@ -21,6 +22,7 @@ export class MyBooks extends Component {
                                 <ListGroup className="list-group-flush">
                                     <ListGroupItem variant="dark">{book.status}</ListGroupItem>
                                 </ListGroup>
+                                <Button variant="outline-danger" onClick={() => this.props.deleteBook(book._id)}>Delete Book</Button>
                             </Card>
                         )
                     })

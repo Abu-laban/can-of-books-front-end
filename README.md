@@ -44,6 +44,13 @@
   - Finish time: 4:25pm
   - Actual time needed to complete: 1 hours 55 minutes
 
+- Name of feature: Lab 13 - Tariq & Jana Pair Program ( Create & Delete - Front end and back end)
+
+  - Estimate of time needed to complete: 3 hours
+  - Start time: 2:30pm
+  - Finish time: 6:15pm
+  - Actual time needed to complete: 3 hours 45 minutes
+
 ## Credit and Collaborations
 
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
