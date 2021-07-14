@@ -4,7 +4,11 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import ListGroupItem from 'react-bootstrap/ListGroupItem'
 import Button from 'react-bootstrap/Button'
 
+
 export class MyBooks extends Component {
+
+
+
     render() {
         return (
             <>
@@ -23,14 +27,20 @@ export class MyBooks extends Component {
                                     <ListGroupItem variant="dark">{book.status}</ListGroupItem>
                                 </ListGroup>
                                 <Button variant="outline-danger" onClick={() => this.props.deleteBook(book._id)}>Delete Book</Button>
+                                <Button variant="outline-warning" onClick={() => this.props.updateModel(book._id)}>Update Book</Button>
                             </Card>
+
+
                         )
                     })
+
                 }
+
+
 
             </>
         )
     }
 }
 
-export default MyBooks
+export default MyBooks;
