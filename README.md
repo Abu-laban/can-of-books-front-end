@@ -2,7 +2,7 @@
 
 **Author**: **Tariq** _Abu-laban_ & **Jana** _Abdelkader_
 
-**Version**: 1.0.1
+**Version**: 1.0.3
 
 ## Overview
 
