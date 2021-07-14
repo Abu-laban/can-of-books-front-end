@@ -1,12 +1,12 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Jumbotron from 'react-bootstrap/Jumbotron';
-import './BestBooks.css';
-import axios from 'axios';
 import { withAuth0 } from '@auth0/auth0-react';
+import axios from 'axios';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Jumbotron, Button } from 'react-bootstrap';
+import './BestBooks.css';
 import MyBooks from './components/MyBooks';
 import BookFormModal from './components/BookFormModal';
-import Button from 'react-bootstrap/Button'
+import UpdateFormModal from './components/UpdateFormModal'
 
 class MyFavoriteBooks extends React.Component {
 
@@ -16,6 +16,9 @@ class MyFavoriteBooks extends React.Component {
       books: [],
       showCards: false,
       showModal: false,
+      showUpdateModal: false,
+      id: "",
+      book: {},
     }
   }
 
@@ -42,7 +45,10 @@ class MyFavoriteBooks extends React.Component {
   }
 
   handleModalClosing = () => {
-    this.setState({ showModal: false })
+    this.setState({
+      showModal: false,
+      showUpdateModal: false,
+    })
   }
 
   addBook = async (event) => {
@@ -87,6 +93,39 @@ class MyFavoriteBooks extends React.Component {
 
   }
 
+  updateModel = async (id) => {
+    await this.setState({
+      showUpdateModal: true,
+      id: id,
+      book: this.state.books.find(element => element._id === id),
+    })
+  }
+
+  updateBook = async (event) => {
+    event.preventDefault();
+
+    const bookFormData = {
+      email: this.props.auth0.user.email,
+      bookName: event.target.bName.value,
+      bookDescription: event.target.bDescription.value,
+      bookStatus: event.target.bStatus.value,
+      bookImg: event.target.bImg.value,
+    }
+
+    try {
+      const SERVER = process.env.REACT_APP_SERVER_URL;
+
+      const booksData = await axios.put(`${SERVER}/books/${this.state.id}`, bookFormData)
+
+      this.setState({
+        books: booksData.data
+      })
+    } catch (error) {
+      console.error(error);
+    }
+
+  }
+
 
   render() {
     return (
@@ -103,10 +142,15 @@ class MyFavoriteBooks extends React.Component {
         <MyBooks
           books={this.state.books}
           showCards={this.state.showCards}
-          deleteBook={this.deleteBook} />
+          deleteBook={this.deleteBook}
+          updateModel={this.updateModel} />
 
         <>
           <BookFormModal addBook={this.addBook} showModal={this.state.showModal} closing={this.handleModalClosing} />
+        </>
+
+        <>
+          <UpdateFormModal updateBook={this.updateBook} showModal={this.state.showUpdateModal} closing={this.handleModalClosing} book={this.state.book} />
         </>
       </Jumbotron>
     )

@@ -51,6 +51,13 @@
   - Finish time: 6:15pm
   - Actual time needed to complete: 3 hours 45 minutes
 
+- Name of feature: Lab 14 - Tariq & Jana Pair Program ( Update - Front end and back end)
+
+  - Estimate of time needed to complete: 3 hours
+  - Start time: 2:00pm
+  - Finish time: 4:30pm
+  - Actual time needed to complete: 2 hours 30 minutes
+
 ## Credit and Collaborations
 
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
